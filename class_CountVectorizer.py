@@ -1,5 +1,5 @@
 class CountVectorizer():
-        def __init__(self, lowercase=True):
+        def __init__(self):
             self.feauters = []
             
         def get_feature_names(self):
