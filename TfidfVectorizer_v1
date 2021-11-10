@@ -1,0 +1,62 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Wed Nov 10 11:09:39 2021
+
+@author: arturarakelan
+"""
+import numpy as np
+
+class TfidfVectorizer():
+        def __init__(self, lowercase=True):
+            self.feauters = []
+            self.tf = []
+            self.idf = []
+            self.it_idf = []
+        
+        def get_feature_names(self):
+            return self.feauters
+        
+
+        def fit_transform(self, corpus):
+            
+            for words in corpus:
+                words = words.lower().split() 
+                for word in words:
+                    if (word in self.feauters) is False:
+                        self.feauters.append(word)
+            count_words = []
+            for i in range(len(corpus)):   
+                a = []
+                for word in self.feauters:
+                    count_word = corpus[i].lower().count(word)
+                    a.append(count_word)
+                count_words.append(a)
+
+            tf_all = []
+            for c_sentences in count_words:
+                s = sum(c_sentences)
+                tf = []
+                for i in c_sentences:
+                    tf_i = i/s
+                    tf.append(tf_i)
+                tf_all.append(tf)
+            self.tf = tf_all.copy()
+
+            idf = []
+            l = len(count_words)
+            for i in range(len(count_words[0])):
+                a = 0
+                for c_sentences in count_words:
+                    if c_sentences[i] > 0:
+                        a += 1
+                idf_i = np.log((l + 1) / (a + 1)) + 1
+                idf.append(idf_i)
+            self.idf = idf.copy()
+
+            copy_tf = self.tf.copy()
+            for tf_i in copy_tf:
+                for i in range(len(tf_i)):
+                    tf_i[i] = self.idf[i] * tf_i[i]
+                    tf_i[i] = float('{:.3f}'.format(tf_i[i]))
+            return copy_tf
