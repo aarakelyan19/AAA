@@ -1,0 +1,42 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Wed Nov 17 16:51:17 2021
+
+@author: arturarakelan
+"""
+import json
+
+
+class MakeJson:
+    def __init__(self, data):
+        self.data = data
+
+    def data_to_json(self) -> object:
+        return json.loads(self.data)
+
+
+class Advert:
+    """issue 1"""
+
+    def __init__(self, object):
+        self.__dict__ = object
+        for key, value in object.items():
+            if isinstance(value, dict):
+                value = Advert(value)
+            setattr(self, key, value)
+
+    @property
+    def price(self):
+        while True:
+            try:
+                return self.__price
+                break
+            except AttributeError:
+                return 0
+
+    @price.setter
+    def price(self, value):
+        if value < 0:
+            raise ValueError("ValueError: price must be >= 0")
+        self.__price = value
