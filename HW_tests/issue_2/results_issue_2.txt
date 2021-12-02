@@ -1,0 +1,10 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.8.8, pytest-6.2.3, py-1.10.0, pluggy-0.13.1
+rootdir: /Users/arturarakelan
+plugins: anyio-2.2.0
+collected 3 items                                                              
+
+../Downloads/issue2_morse_test.py ...                                    [100%]
+
+============================== 3 passed in 0.03s ===============================
+(base) MacBook-Pro-Artur-2:desktop arturarakelan$ 
