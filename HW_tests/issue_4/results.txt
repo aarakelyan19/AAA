@@ -1,9 +1,10 @@
+python -m pytest /Users/arturarakelan/Downloads/one_hot_encoder_pytest.py
 ============================= test session starts ==============================
 platform darwin -- Python 3.8.8, pytest-6.2.3, py-1.10.0, pluggy-0.13.1
-rootdir: /Users/arturarakelan
+rootdir: /Users/arturarakelan/Downloads
 plugins: anyio-2.2.0
 collected 4 items                                                              
 
-Downloads/one_hot_encoder_pytest.py ....                                 [100%]
+one_hot_encoder_pytest.py ....                                           [100%]
 
-============================== 4 passed in 0.02s ===============================
+============================== 4 passed in 0.03s ===============================
