@@ -24,3 +24,7 @@ def test_NotIn(*args):
     actual = fit_transform(['a', 'b'])
         
     assert 'jgj' not in actual
+
+def exception():
+    with pytest.raises(TypeError):
+        fit_transform()
