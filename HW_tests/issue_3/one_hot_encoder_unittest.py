@@ -25,7 +25,9 @@ class TestTF(unittest.TestCase):
         
         self.assertNotIn('jgj', actual)
         
-        
+   def exception(self):
+       with self.assertRaises(TypeError):
+           fit_transform()
         
 if __name__ == '__main__':
    unittest.main()
