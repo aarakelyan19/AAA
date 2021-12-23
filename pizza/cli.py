@@ -27,19 +27,16 @@ def log(text):
 @log('🍳 Приготовили за {}с!')
 def bake(pizza):
     """Готовит пиццу"""
-    return random.randint(10,50)
 
 
 @log('🛵 Доставили за {}с!')
 def delivery_pizza(pizza):
     """Доставляет пиццу"""
-    return random.randint(10,50)
 
 
 @log('🏡 Забрали за {}с!')
 def pickup(pizza):
     """Самовывоз"""
-    return random.randint(10,50)
 
 
 @click.group()
