@@ -13,6 +13,10 @@ recipts = {'Margherita': ['tomato sauce','mozzarella','tomatoes'],
            'Pepperoni': ['tomato sauce','mozzarella','pepperoni'],
            'Hawaiian': ['tomato sauce','mozzarella','chicken','pineapples']
            }
+emojis = {'Margherita': '🧀', 
+          'Pepperoni': '🍕',
+          'Hawaiian': '🍍'
+          }
 
 class Pizza:
     """
@@ -23,10 +27,12 @@ class Pizza:
         if (pizza in pizzas) and (size in sizes):
             self.name = pizza 
             self.size = size
+            self.emoji = emojis[self.name]
         else:
             offer_pizza = random.choice(pizzas)
             offer_size = random.choice(sizes)
-            raise ValueError(f'Может попробовать {offer_pizza} размером {offer_size}?')
+            other_emoji = emojis[offer_pizza]
+            raise ValueError(f'Может попробовать {offer_pizza} {other_emoji }размером {offer_size}?')
     
    #@abc.abstractmethod
     def __dict__(self):
@@ -35,7 +41,8 @@ class Pizza:
         """
         recipt = recipts[self.name]
         print('Рецепт ниже')
-        return {self.name: recipt}  
+        pizza_name = self.name + self.emoji
+        return {pizza_name: recipt}  
     
     def __eq__(self, other):
         """
